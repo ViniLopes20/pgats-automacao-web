@@ -1,25 +1,26 @@
 /// <reference types="cypress" />
 
 import { userListToDelete } from "../../pages/login/loginPage.js";
+import accountData from "../../fixtures/accountData.json";
 
 export function createUserViaAPI(payload) {
   const params = {
     name: payload.name,
     email: payload.email,
     password: payload.password,
-    title: "Mr",
-    birth_date: "24",
-    birth_month: "June",
-    birth_year: "1987",
-    firstname: "Leo",
-    lastname: "Messi",
-    company: "Inter Miami CF",
-    address1: "1350 NW 55th St",
-    country: "United States",
-    zipcode: "33309",
-    state: "FL",
-    city: "Fort Lauderdale",
-    mobile_number: "305-358-3535",
+    title: payload.gender ?? accountData[1].gender,
+    birth_date: payload.bornDay ?? accountData[1].bornDay,
+    birth_month: payload.bornMonth ?? accountData[1].bornMonth,
+    birth_year: payload.bornYear ?? accountData[1].bornYear,
+    firstname: payload.firstName ?? accountData[1].firstName,
+    lastname: payload.lastName ?? accountData[1].lastName,
+    company: payload.company ?? accountData[1].company,
+    address1: payload.address1 ?? accountData[1].address1,
+    country: payload.country ?? accountData[1].country,
+    zipcode: payload.zipcode ?? accountData[1].zipcode,
+    state: payload.state ?? accountData[1].state,
+    city: payload.city ?? accountData[1].city,
+    mobile_number: payload.mobileNumber ?? accountData[1].mobileNumber,
   };
 
   return cy
