@@ -21,31 +21,33 @@ import {
 import { createUserViaAPI, deleteUserViaAPI } from "../api/userMenagmentAPI.js";
 
 const timestamp = new Date().getTime();
-const registeredEmail = `automation+${timestamp}@test.com`;
-const registeredName = `Automation User ${timestamp}`;
-const registeredPassword = timestamp;
+const userData = {
+  name: `Automation User ${timestamp}`,
+  email: `automation+${timestamp}@test.com`,
+  password: timestamp,
+};
 
 beforeEach(() => {
-  createUserViaAPI(registeredName, registeredEmail, registeredPassword);
+  createUserViaAPI(userData);
 
   launchCommercePlatform();
 });
 
 describe("Tests Cases related to Login", () => {
   it("Check that is possible to log in with valid credentials", () => {
-    login(registeredEmail, registeredPassword);
+    login(userData.email, userData.password);
 
     viewLogoutButtonPresent();
   });
   it("Check that is not possible to log in with invalid credentials", () => {
-    login(registeredEmail, "wrongpassword");
+    login(userData.email, "wrongpassword");
 
     viewErrorMessage("Your email or password is incorrect!");
     viewUserIconNotPresent();
     viewLogoutButtonNotPresent();
   });
   it("Check that is possible to logout", () => {
-    login(registeredEmail, registeredPassword);
+    login(userData.email, userData.password);
 
     logout();
 
@@ -97,7 +99,7 @@ describe("Tests Cases related to Register User", () => {
   it("Check that is not possible to create a new user with existing email", () => {
     const timestamp = new Date().getTime();
     const uniqueName = `Vini Teste ${timestamp}`;
-    const existingEmail = registeredEmail;
+    const existingEmail = userData.email;
 
     moveToLoginPage();
 

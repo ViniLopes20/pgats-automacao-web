@@ -2,11 +2,11 @@
 
 import { userListToDelete } from "../../pages/login/loginPage.js";
 
-export function createUserViaAPI(name, email, password) {
+export function createUserViaAPI(payload) {
   const params = {
-    name: name,
-    email: email,
-    password: password,
+    name: payload.name,
+    email: payload.email,
+    password: payload.password,
     title: "Mr",
     birth_date: "24",
     birth_month: "June",
@@ -21,6 +21,7 @@ export function createUserViaAPI(name, email, password) {
     city: "Fort Lauderdale",
     mobile_number: "305-358-3535",
   };
+
   return cy
     .request({
       method: "POST",
@@ -35,7 +36,11 @@ export function createUserViaAPI(name, email, password) {
           `Error to create user: status ${response.status}, response: ${response.body}`
         );
       }
-      userListToDelete.push({ email, password });
+      userListToDelete.push({
+        email: payload.email,
+        password: payload.password,
+      });
+
       return response;
     });
 }
@@ -61,6 +66,7 @@ export function deleteUserViaAPI(email, password) {
           `Error to delete user: status ${response.status}, response: ${response.body}`
         );
       }
+
       return response;
     });
 }
