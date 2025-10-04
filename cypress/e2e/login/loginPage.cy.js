@@ -19,6 +19,7 @@ import {
   moveToLoginPage,
 } from "../../pages/utils/navigation.js";
 import { createUserViaAPI, deleteUserViaAPI } from "../api/userMenagmentAPI.js";
+import errorMessage from "../../fixtures/errorMessage.json";
 
 const timestamp = new Date().getTime();
 const userData = {
@@ -42,7 +43,7 @@ describe("Tests Cases related to Login", () => {
   it("Check that is not possible to log in with invalid credentials", () => {
     login(userData.email, "wrongpassword");
 
-    viewErrorMessage("Your email or password is incorrect!");
+    viewErrorMessage(errorMessage.credentialInvalid);
     viewUserIconNotPresent();
     viewLogoutButtonNotPresent();
   });
@@ -105,7 +106,7 @@ describe("Tests Cases related to Register User", () => {
 
     fillSignupForm(uniqueName, existingEmail);
 
-    viewErrorMessage("Email Address already exist!");
+    viewErrorMessage(errorMessage.credentialAlreadyInUse);
   });
 });
 
