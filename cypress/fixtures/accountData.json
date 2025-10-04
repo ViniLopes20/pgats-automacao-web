@@ -1,0 +1,18 @@
+[
+    {
+        "address1": "Automation 123",
+        "address2": "Test 123",
+        "bornDay": "9",
+        "bornMonth": "June",
+        "bornYear": "1964",
+        "city": "Test City",
+        "company": "Test Company",
+        "country": "Canada",
+        "firstName": "Vini",
+        "gender": "Mr",
+        "lastName": "Test 2",
+        "mobileNumber": "89976547372",
+        "state": "Test State",
+        "zipcode": "50764899"
+    }
+]

@@ -65,25 +65,7 @@ describe("Tests Cases related to Register User", () => {
     const uniqueName = `Vini Teste ${timestamp}`;
     const password = timestamp;
 
-    createNewAccount(
-      uniqueName,
-      uniqueEmail,
-      password,
-      "9",
-      "June",
-      "1964",
-      "Vini",
-      "Test 2",
-      "Test Company",
-      "Automation 123",
-      "Test 123",
-      "Canada",
-      "Test State",
-      "Test City",
-      "50764899",
-      "89976547372",
-      "Mr"
-    );
+    createNewAccount(uniqueName, uniqueEmail, password);
 
     assertUrlContainsPath("account_created");
     cy.get('h2[data-qa="account-created"]').contains("Account Created!");
