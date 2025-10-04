@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
-import { userListToDelete } from "../../pages/login/loginPage.js";
-import accountData from "../../fixtures/accountData.json";
+import { userListToDelete } from "../pages/login/loginPage.js";
+import accountData from "../fixtures/accountData.json";
 
 export function createUserViaAPI(payload) {
   const params = {

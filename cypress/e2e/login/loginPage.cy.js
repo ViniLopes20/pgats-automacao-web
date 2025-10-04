@@ -18,7 +18,10 @@ import {
   launchCommercePlatform,
   moveToLoginPage,
 } from "../../pages/utils/navigation.js";
-import { createUserViaAPI, deleteUserViaAPI } from "../api/userMenagmentAPI.js";
+import {
+  createUserViaAPI,
+  deleteUserViaAPI,
+} from "../../api/userMenagmentAPI.js";
 import errorMessage from "../../fixtures/errorMessage.json";
 
 const timestamp = new Date().getTime();
