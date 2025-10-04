@@ -1,0 +1,8 @@
+{
+    "name": "Automation Test Name",
+    "email": "automation.test@test.com",
+    "subject": "Inquiry about services",
+    "message": "Hello, I would like to know more about your services.",
+    "filePath": "cypress/upload-files/mao.jpg",
+    "successMessage": "Success! Your details have been submitted successfully."
+}
