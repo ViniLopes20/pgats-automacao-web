@@ -24,11 +24,13 @@ import {
 } from "../../api/userMenagmentAPI.js";
 import errorMessage from "../../fixtures/errorMessage.json";
 
-const timestamp = new Date().getTime();
+const Chance = require("chance");
+const chance = new Chance();
+
 const userData = {
-  name: `Automation User ${timestamp}`,
-  email: `automation+${timestamp}@test.com`,
-  password: timestamp,
+  name: chance.name(),
+  email: chance.email(),
+  password: chance.hash(),
 };
 
 beforeEach(() => {
@@ -63,10 +65,9 @@ describe("Tests Cases related to Login", () => {
 });
 describe("Tests Cases related to Register User", () => {
   it("Check that is possible to create a new user", () => {
-    const timestamp = new Date().getTime();
-    const uniqueEmail = `vini2.lopes+${timestamp}@test.com.br`;
-    const uniqueName = `Vini Teste ${timestamp}`;
-    const password = timestamp;
+    const uniqueEmail = chance.email();
+    const uniqueName = chance.name();
+    const password = chance.hash();
 
     createNewAccount(uniqueName, uniqueEmail, password);
 
@@ -83,8 +84,7 @@ describe("Tests Cases related to Register User", () => {
   });
 
   it("Check that is not possible to create a new user with existing email", () => {
-    const timestamp = new Date().getTime();
-    const uniqueName = `Vini Teste ${timestamp}`;
+    const uniqueName = chance.name();
     const existingEmail = userData.email;
 
     moveToLoginPage();
