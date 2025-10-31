@@ -14,32 +14,32 @@ export function viewProductDetails(
   productBrand
 ) {
   if (productName) {
-    cy.get(".product-information")
+    cy.get("div.product-information")
       .should("be.visible")
       .and("contain.text", productName);
   }
   if (productCategory) {
-    cy.get(".product-information")
+    cy.get("div.product-information")
       .should("be.visible")
       .and("contain.text", productCategory);
   }
   if (productPrice) {
-    cy.get(".product-information")
+    cy.get("div.product-information")
       .should("be.visible")
       .and("contain.text", productPrice);
   }
   if (productAvailability) {
-    cy.get(".product-information")
+    cy.get("div.product-information")
       .should("be.visible")
       .and("contain.text", productAvailability);
   }
   if (productCondition) {
-    cy.get(".product-information")
+    cy.get("div.product-information")
       .should("be.visible")
       .and("contain.text", productCondition);
   }
   if (productBrand) {
-    cy.get(".product-information")
+    cy.get("div.product-information")
       .should("be.visible")
       .and("contain.text", productBrand);
   }

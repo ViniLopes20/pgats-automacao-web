@@ -29,7 +29,7 @@ describe("Tests Cases related to Product Page", () => {
     moveToProductPage();
 
     assertUrlContainsPath("/products");
-    cy.get(".features_items").should("be.visible");
+    cy.get("div.features_items").should("be.visible");
     cy.get("h2.title").should("be.visible").and("have.text", "All Products");
     cy.get('a[href="/product_details/1"]').should("be.visible");
 
