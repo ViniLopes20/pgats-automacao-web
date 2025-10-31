@@ -12,7 +12,7 @@ beforeEach(() => {
 });
 
 describe("Tests Cases related to Contact Us Page", () => {
-  it("Check that is possible to submit the form of the Contact Us page", () => {
+  it("TC06 - Check that is possible to submit the form of the Contact Us page", () => {
     sendContactUsMessageForm(
       contactUsData.name,
       contactUsData.email,

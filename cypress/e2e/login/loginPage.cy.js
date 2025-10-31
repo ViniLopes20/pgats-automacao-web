@@ -40,19 +40,19 @@ beforeEach(() => {
 });
 
 describe("Tests Cases related to Login", () => {
-  it("Check that is possible to log in with valid credentials", () => {
+  it("TC02 - Check that is possible to log in with valid credentials", () => {
     login(userData.email, userData.password);
 
     viewLogoutButtonPresent();
   });
-  it("Check that is not possible to log in with invalid credentials", () => {
+  it("TC03 - Check that is not possible to log in with invalid credentials", () => {
     login(userData.email, "wrongpassword");
 
     viewErrorMessage(errorMessage.credentialInvalid);
     viewUserIconNotPresent();
     viewLogoutButtonNotPresent();
   });
-  it("Check that is possible to logout", () => {
+  it("TC04 - Check that is possible to logout", () => {
     login(userData.email, userData.password);
 
     logout();
@@ -64,7 +64,7 @@ describe("Tests Cases related to Login", () => {
   });
 });
 describe("Tests Cases related to Register User", () => {
-  it("Check that is possible to create a new user", () => {
+  it("TC01 - Check that is possible to create a new user", () => {
     const uniqueEmail = chance.email();
     const uniqueName = chance.name();
     const password = chance.hash();
@@ -83,7 +83,7 @@ describe("Tests Cases related to Register User", () => {
     viewLogoutButtonPresent();
   });
 
-  it("Check that is not possible to create a new user with existing email", () => {
+  it("TC05 - Check that is not possible to create a new user with existing email", () => {
     const uniqueName = chance.name();
     const existingEmail = userData.email;
 
