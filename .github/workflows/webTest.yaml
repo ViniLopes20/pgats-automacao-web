@@ -8,7 +8,7 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  e2e-tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -22,26 +22,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Cypress Tests with Mochawesome
-        run: npx cypress run --reporter mochawesome --reporter-options overwrite=false,html=true,json=true
+      - name: Run Cypress Tests
+        run: npx cypress run
 
-      - name: Upload Cypress Videos
+      - name: Upload Test Results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-videos
-          path: cypress/videos
+          name: Test Artifacts
+          path: |
+            cypress/reports
+            cypress/screenshots
+            cypress/videos
 
-      - name: Upload Cypress Screenshots
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-
-      - name: Upload Mochawesome Report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: mochawesome-report
-          path: mochawesome-report
