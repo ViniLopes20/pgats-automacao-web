@@ -12,6 +12,10 @@ export function moveToProductPage() {
   cy.get('a[href="/products"]').click();
 }
 
+export function moveToProductDetails(productId) {
+  cy.get(`a[href="/product_details/${productId}"]`).click();
+}
+
 export function launchCommercePlatform() {
   cy.visit("https://www.automationexercise.com");
 }
