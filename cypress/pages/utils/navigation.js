@@ -8,6 +8,10 @@ export function moveToContactUsPage() {
   cy.get('a[href="/contact_us"]').click();
 }
 
+export function moveToChart() {
+  cy.get(`a[href="/view_cart"]`).first().click();
+}
+
 export function moveToProductPage() {
   cy.get('a[href="/products"]').click();
 }
